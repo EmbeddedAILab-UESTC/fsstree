@@ -55,7 +55,7 @@ neighbor_query_reesult = t.fsstree_knn(fsst_sample_data_numpy,k=k)
 ```
 
 
-### After one layer , Remember to Self-Pruning the tree
+### After each layer , Remember to Self-Pruning the tree
 
 ```
 t.delete_layer()
