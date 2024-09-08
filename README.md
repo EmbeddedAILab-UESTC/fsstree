@@ -23,7 +23,8 @@ e = 3                                 # Set the expansion coefficient e
 k = 256                               # Set the neighbor query size k 
 h = math.floor(math.log((data.shape[0] / (math.log(data.shape[0],10)* self.k)), 2)) + 1
 # h is the height of the tree is a hyperparameter which can be obtained by the equation we recommend. You can also adjust it manually to make the task work best.
-# Each layer of FSSTree needs to choose a dimension (i.e., X-axis, Y-axis or Z-axis), where 0 denotes X-axis, and 1 denotes Y-axis, and 2 denotes Z-axis. The dimension with the biggest variance is chosen as the dim of the first layer, and then the dimension with the second biggest variance is chosen as the dim of the second layer, and so on, until the last layer. 
+# Each layer of FSSTree needs to choose a dimension (i.e., X-axis, Y-axis or Z-axis), where 0 denotes X-axis, and 1 denotes Y-axis, and 2 denotes Z-axis. The dimension with the biggest variance is chosen as the dim of the first layer, and then the dimension with the second biggest variance is chosen as the dim of the second layer, and so on, until the last layer.
+
 dim = [0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,1,2,0,1,2]  # The length of dim is h. 
 # To create an FSSTree. 
 t = PC_FSSTree(data=data, slip_mode="kde", level=h , dim = dim,k=k,ek=e*k)
@@ -123,6 +124,9 @@ def sample_and_group(e,tree_list,npoint, radius, nsample, xyz, points, returnfps
 - Environment Setting：Run the following command to install the required dependencies.
   conda env create -f env.yml
 - Some notes:
+  
 1.Tips on choosing the dim: In some real-life scenarios, points in the Z-axis (i.e., vertical direction) are clustered distribution, and the density distribution curve has no obvious peaks or valleys. In this case, we can only divide the points in the X-axis and Y-axis. For example, dim=[0,1,0,1,0,1].
+
 2.The height of FSSTree in the equation is only a recommended value and can be adjusted according to the distribution of points in the real-life scenarios.
+
 3.Multiple threads can be set to improve the process of FSSTree construction according to the device performance. 
