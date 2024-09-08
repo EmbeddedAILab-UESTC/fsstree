@@ -2,7 +2,7 @@
 
 Created by Jinyu Zhan, Shiyu Zou, Wei Jiang, Youyuan Zhang, Suidi Peng, Ying Wang
 
-![](pics/pipeline.png)
+![](pics/pipe.png)
 
 Fig.1 An example of structuring points by FSSTree-PCS for one layer of DNN. (a) An FSSTree of a point cloud is constructed. (b) Sampling points are fairly sampled from each leaf node of FSSTree, and (c) then the neighbor points of each sampling point are searched according to the similarity level between leaf nodes. (d) The sampling points and their neighbors are fed to one DNN layer to obtain the local features of sampling points. (e) After one layer operation of DNN, the FSSTree automatically moves the sampling points from the leaf nodes to their parent nodes, and then deletes the leaf nodes. (f) The pruned FSSTree supports for the sampling and neighbor query of the next DNN layer.
 
