@@ -57,7 +57,9 @@ t.delete_layer()  # Perform FSSTree self-pruning after each layer operation of D
 ```
 
 
-### The whole process of FSSTree-based point cloud structuring. PS: The code example is in the next section and the pseudo code is as follows.
+### The whole process of FSSTree-based point cloud structuring. 
+
+PS: The code example is in the next section and the pseudo code is as follows.
 ```
 input ：pc [b,n,3]  # Input points
 e = 3                                 
